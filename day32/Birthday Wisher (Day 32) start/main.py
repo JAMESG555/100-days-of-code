@@ -1,7 +1,7 @@
 import datetime as dt
 import random
 import smtplib
-from config import my_email, password
+from config import my_email, password, dest_email
 now = dt.datetime.now()
 
 def send_email():
@@ -9,7 +9,7 @@ def send_email():
         with smtplib.SMTP("smtp.gmail.com") as connection:
              connection.starttls()
              connection.login(user=my_email, password=password)
-             connection.sendmail(from_addr=my_email, to_addrs="james_G5@hotmail.com", msg=f"Subject:Monday Motivational Quote\n\n{get_quote()}")
+             connection.sendmail(from_addr=my_email, to_addrs=dest_email, msg=f"Subject:Monday Motivational Quote\n\n{get_quote()}")
 
 
 def get_day():
